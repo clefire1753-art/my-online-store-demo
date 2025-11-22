@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>My online Store</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-left">
+      <div class="logo">My Online Store<span class="logo-dot">Demo</span></div>
+      <nav class="main-nav">
+        <a href="#">All</a>
+        <a href="#">Prime</a>
+        <a href="#">Deals</a>
+        <a href="#">Categories</a>
+      </nav>
+    </div>
+    <div class="header-middle">
+      <input id="searchInput" type="search" placeholder="Search products, brands and more" aria-label="Search">
+      <button id="searchBtn">Search</button>
+    </div>
+    <div class="header-right">
+      <div class="account" id="accountArea">Hello, Guest<br><strong>Account & Lists</strong></div>
+      <div class="auth-buttons">
+        <button id="loginBtn" class="btn">Login</button>
+        <button id="registerBtn" class="btn">Register</button>
+        <button id="logoutBtn" class="btn hidden">Logout</button>
+      </div>
+      <div class="cart" id="cartBtn">🛒 <span id="cartCount">0</span></div>
+    </div>
+  </header>
+
+  <main class="container">
+    <aside class="sidebar">
+      <h3>Departments</h3>
+      <ul id="categoryList">
+        <!-- categories will be rendered here by script.js -->
+      </ul>
+    </aside>
+
+    <section class="product-area">
+      <div class="hero">
+        <h2>Top deals for you</h2>
+        <p>Responsive demo of product listing and cart interactions.</p>
+      </div>
+
+      <div id="products" class="products-grid" aria-live="polite"></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>Online Store project or demo — not an actual online Store.</p>
+  </footer>
+
+  <!-- Product modal -->
+  <div id="modal" class="modal hidden" role="dialog" aria-modal="true">
+    <div class="modal-content">
+      <button id="modalClose" class="modal-close">✕</button>
+      <div id="modalBody"></div>
+    </div>
+  </div>
+
+  <!-- Cart / Checkout modal -->
+  <div id="cartModal" class="modal hidden" role="dialog" aria-modal="true">
+    <div class="modal-content cart-modal-content">
+      <button id="cartModalClose" class="modal-close">✕</button>
+      <div id="cartBody">
+        <!-- cart contents rendered by script.js -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Auth modal (login/register) -->
+  <div id="authModal" class="modal hidden" role="dialog" aria-modal="true">
+    <div class="modal-content auth-modal-content">
+      <button id="authModalClose" class="modal-close">✕</button>
+      <div id="authBody">
+        <div class="auth-tabs">
+          <button id="authTabLogin" class="auth-tab active">Login</button>
+          <button id="authTabRegister" class="auth-tab">Register</button>
+        </div>
+        <div id="authForms">
+          <form id="loginForm" class="auth-form">
+            <input name="email" type="email" placeholder="Email" required>
+            <input name="password" type="password" placeholder="Password" required>
+            <button type="submit" class="btn">Sign in</button>
+          </form>
+
+          <form id="registerForm" class="auth-form hidden">
+            <input name="name" placeholder="Full name" required>
+            <input name="email" type="email" placeholder="Email" required>
+            <input name="password" type="password" placeholder="Password" required>
+            <button type="submit" class="btn">Create account</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js" defer></script>
+</body>
+</html>

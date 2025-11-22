@@ -1,0 +1,158 @@
+/* Basic reset */
+*{box-sizing:border-box;margin:0;padding:0;font-family:Segoe UI,Arial,sans-serif}
+body{background:#f3f3f3;color:#111}
+
+.site-header{display:flex;align-items:center;justify-content:space-between;padding:12px 18px;background:linear-gradient(90deg,#25265a,#010e20);color:#cfcdcd}
+.header-left{display:flex;align-items:center;gap:18px}
+.logo{font-weight:700;font-size:20px}
+.logo-dot{color:#ebc82e;font-weight:700;margin-left:6px}
+.main-nav a{color:#fff;margin-right:10px;text-decoration:none;font-size:14px}
+.header-middle{flex:1;display:flex;justify-content:center;gap:8px}
+#searchInput{width:60%;max-width:720px;padding:10px;border-radius:4px;border:1px solid #ccc}
+#searchBtn{padding:10px 14px;border:none;background:#ebc82e;border-radius:4px;cursor:pointer}
+.header-right{display:flex;align-items:center;gap:18px}
+.account{font-size:12px}
+.cart{background:transparent;color:#fff}
+
+.container{display:flex;gap:20px;padding:18px;max-width:1200px;margin:20px auto}
+.sidebar{width:220px;background:#d6e3f3;padding:0px;border-radius:6px}
+.sidebar h3{margin-bottom:8px}
+.sidebar ul{list-style:none}
+.sidebar li{padding:6px 0;border-bottom:1px solid #0a0a0a}
+
+.product-area{flex:1}
+.hero{background:linear-gradient(90deg,#1e1663,#050231);color:#ffffff;padding:18px;border-radius:6px;margin-bottom:12px}
+
+.products-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px}
+.product-card{background:#fff;padding:12px;border-radius:6px;display:flex;flex-direction:column;justify-content:space-between;min-height:280px}
+.product-card img{max-width:100%;height:150px;object-fit:contain;margin-bottom:8px}
+.product-title{font-size:14px;margin-bottom:6px;color:#111}
+.product-price{font-weight:700;margin-bottom:8px}
+.card-actions{display:flex;gap:8px}
+.btn{padding:8px 10px;border-radius:4px;border:none;cursor:pointer}
+.btn-buy{background:#ffd814}
+.btn-details{background:#e7e7e7}
+.cat-btn{width:100%;padding:0px;border:none;background:linear-gradient(90deg,#181717,#ffffff);border-radius:4px;cursor:pointer;text-align:left;margin: bottom 0px}
+
+
+.site-footer{padding:18px;text-align:center;color:#555}
+
+/* Modal */
+.modal{position:fixed;inset:0;background:rgba(0,0,0,0.5);display:flex;align-items:center;justify-content:center}
+.modal.hidden{display:none}
+.modal-content{background:#fff;padding:18px;border-radius:8px;width:90%;max-width:760px;position:relative}
+.modal-close{position:absolute;right:10px;top:10px;border:none;background:transparent;font-size:18px;cursor:pointer}
+
+/* Responsive */
+@media(max-width:800px){
+  .container{flex-direction:column;padding:12px}
+  .sidebar{width:100%}
+  #searchInput{width:100%}
+  .header-middle{padding:8px}
+}
+
+/* Cart / Checkout styles */
+.cart-modal-content{max-width:920px;padding:18px}
+.cart-list{display:flex;flex-direction:column;gap:12px}
+.cart-item{display:flex;gap:12px;align-items:center;padding:10px;border:1px solid #0c0c0c;border-radius:6px}
+.cart-item img{width:84px;height:64px;object-fit:cover;border-radius:4px}
+.cart-item .meta{flex:1}
+.cart-item .meta h4{margin-bottom:6px;font-size:15px}
+.qty-controls{display:inline-flex;align-items:center;gap:8px}
+.qty-controls button{padding:6px 8px;border-radius:4px;background:#181318}
+.cart-summary{margin-top:12px;padding-top:12px;border-top:1px solid #241c23;display:flex;justify-content:space-between;align-items:center}
+.checkout-form{margin-top:12px;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.checkout-form .full{grid-column:1 / -1}
+.checkout-form input, .checkout-form textarea{width:100%;padding:8px;border:1px solid #181717;border-radius:6px}
+.btn-checkout{background:#131921;color:#ca12bb;padding:10px 16px;border-radius:6px}
+.order-success{padding:18px;background:#e6ffed;border:1px solid #7eeb9f;border-radius:6px}
+
+/* Category button active style */
+#categoryList .cat-btn.active{background:#131921;color:#fff}
+
+/* Auth modal styles */
+.auth-modal-content{max-width:420px;padding:18px}
+.auth-tabs{display:flex;gap:8px;margin-bottom:12px}
+.auth-tab{flex:1;padding:8px;border-radius:6px;border:1px solid #7c6628;background:#6f6e72;cursor:pointer}
+.auth-tab.active{background:#0d52bb;color:#f0f1e9}
+.auth-form{display:flex;flex-direction:column;gap:8px}
+.auth-form input{padding:10px;border-radius:6px;border:1px solid #b10909}
+.auth-form .btn{align-self:stretch;padding:10px,}
+.auth-buttons{display:flex;gap:8px;align-items:center}
+.auth-buttons .btn{padding:12px 10px}
+.hidden{display:none}
+
+
+:root{
+  --btn-font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  --btn-font-size: 0.95rem;      /* use rem for scaling */
+  --btn-font-weight: 100;        /* semi-bold */
+  --btn-letter-spacing: 0.02em;
+  --btn-line-height: 1.2;
+  --btn-color: #f0f0f0f1;
+  --btn-bg: #e7e7e700;
+  --btn-radius: 6px;
+  --btn-padding: 8px 12px;
+  --cat-active-bg: #10092b;      /* header-like dark */ 
+  --cat-active-color: #ffffff;
+  --transition-fast: 150ms;
+}
+
+/* Generic button typography and layout */
+button, .btn {
+  font-family: var(--btn-font-family);
+  font-size: var(--btn-font-size);
+  font-weight: var(--btn-font-weight);
+  letter-spacing: var(--btn-letter-spacing);
+  line-height: var(--btn-line-height);
+  color: var(--btn-color);
+  background: var(--btn-bg);
+  padding: var(--btn-padding);
+  border-radius: var(--btn-radius);
+  border: 0;
+  cursor: pointer;
+  transition: transform var(--transition-fast) ease, background var(--transition-fast) ease, color var(--transition-fast) ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Hover/focus affordance */
+button:hover, .btn:focus {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 6px rgba(247, 25, 25, 0.08);
+}
+
+/* Specific button variants */
+.btn-buy {
+  background: #13092e;
+  font-weight: 200;
+}
+.btn-details {
+  background: #f3f3f3;
+}
+
+/* Category buttons in the sidebar */
+#categoryList .cat-btn {
+  background: transparent;
+  color: #1b1414;
+  padding: 6px 8px;
+  width: 100%;
+  text-align: left;
+  border-radius: 4px;
+  font-size: 0.95rem;
+  font-weight: 300;
+}
+
+/* Active / selected category */
+#categoryList .cat-btn.active {
+  background: var(--cat-active-bg);
+  color: var(--cat-active-color);
+  box-shadow: none;
+}
+
+/* Small screens: make touch targets larger */
+@media (max-width: 600px){
+  :root{ --btn-font-size: 1rem; --btn-padding: 10px 14px; }
+  #categoryList .cat-btn { padding: 10px 12px; }
+}
