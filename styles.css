@@ -9,7 +9,7 @@ body{background:#f3f3f3;color:#111}
 .main-nav a{color:#fff;margin-right:10px;text-decoration:none;font-size:14px}
 .header-middle{flex:1;display:flex;justify-content:center;gap:8px}
 #searchInput{width:60%;max-width:720px;padding:10px;border-radius:4px;border:1px solid #ccc}
-#searchBtn{padding:10px 14px;border:none;background:#ebc82e;border-radius:4px;cursor:pointer}
+#searchBtn{padding:10px 14px;border:none;background:#ebc82e; color: #1b1414 ;border-radius:4px;cursor:pointer}
 .header-right{display:flex;align-items:center;gap:18px}
 .account{font-size:12px}
 .cart{background:transparent;color:#fff}
@@ -33,7 +33,6 @@ body{background:#f3f3f3;color:#111}
 .btn-buy{background:#ffd814}
 .btn-details{background:#e7e7e7}
 .cat-btn{width:100%;padding:0px;border:none;background:linear-gradient(90deg,#181717,#ffffff);border-radius:4px;cursor:pointer;text-align:left;margin: bottom 0px}
-
 
 .site-footer{padding:18px;text-align:center;color:#555}
 
@@ -59,7 +58,7 @@ body{background:#f3f3f3;color:#111}
 .cart-item .meta{flex:1}
 .cart-item .meta h4{margin-bottom:6px;font-size:15px}
 .qty-controls{display:inline-flex;align-items:center;gap:8px}
-.qty-controls button{padding:6px 8px;border-radius:4px;background:#181318}
+.qty-controls button{padding:6px 8px;border-radius:4px;background:#7eaff8}
 .cart-summary{margin-top:12px;padding-top:12px;border-top:1px solid #241c23;display:flex;justify-content:space-between;align-items:center}
 .checkout-form{margin-top:12px;display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .checkout-form .full{grid-column:1 / -1}
@@ -76,11 +75,23 @@ body{background:#f3f3f3;color:#111}
 .auth-tab{flex:1;padding:8px;border-radius:6px;border:1px solid #7c6628;background:#6f6e72;cursor:pointer}
 .auth-tab.active{background:#0d52bb;color:#f0f1e9}
 .auth-form{display:flex;flex-direction:column;gap:8px}
-.auth-form input{padding:10px;border-radius:6px;border:1px solid #b10909}
+.auth-form input{padding:10px;border-radius:6px;border:1px solid #166cbd}
 .auth-form .btn{align-self:stretch;padding:10px,}
-.auth-buttons{display:flex;gap:8px;align-items:center}
-.auth-buttons .btn{padding:12px 10px}
+.auth-buttons{padding:10px;display:flex;gap:8px;align-items:center}
+.auth-buttons .btn{ padding:12px 10px}
+.btn-google{margin-top: 12px; display:flex;align-items:center;justify-content:center;gap:8px;padding:10px;border-radius:4px;border:none;cursor:pointer;font-size:14px}
 .hidden{display:none}
+
+/* Notification / toast */
+.notification{background:#e6ffed;border:1px solid #b7f0c8;color:#064b1b;padding:10px 12px;margin-bottom:8px;border-radius:6px;box-shadow:0 6px 18px rgba(2,6,23,0.08);transition:opacity .3s ease}
+
+/* Wishlist button and modal */
+.btn-wish{background:transparent;border:1px solid rgba(255,255,255,0.08);color:#fff;padding:6px 10px;border-radius:6px;font-size:16px}
+.btn-wish:hover{background:rgba(255,255,255,0.03)}
+.wish-list{display:flex;flex-direction:column;gap:12px}
+.wish-item{display:flex;gap:12px;align-items:center;padding:8px;border:1px solid #eee;border-radius:6px;background:#fff}
+.wish-item img{width:72px;height:56px;object-fit:cover;border-radius:4px}
+.wish-actions{margin-left:auto;display:flex;gap:8px}
 
 
 :root{
@@ -89,8 +100,8 @@ body{background:#f3f3f3;color:#111}
   --btn-font-weight: 100;        /* semi-bold */
   --btn-letter-spacing: 0.02em;
   --btn-line-height: 1.2;
-  --btn-color: #f0f0f0f1;
-  --btn-bg: #e7e7e700;
+  /*--btn-color: #141313f1;
+  --btn-bg: #e5e9ee;  */
   --btn-radius: 6px;
   --btn-padding: 8px 12px;
   --cat-active-bg: #10092b;      /* header-like dark */ 
@@ -120,16 +131,16 @@ button, .btn {
 /* Hover/focus affordance */
 button:hover, .btn:focus {
   transform: translateY(-1px);
-  box-shadow: 0 2px 6px rgba(247, 25, 25, 0.08);
+  box-shadow: 0 2px 6px rgba(11, 87, 150, 0.582);
 }
 
 /* Specific button variants */
 .btn-buy {
-  background: #13092e;
+  background: #f7d307;
   font-weight: 200;
 }
 .btn-details {
-  background: #f3f3f3;
+  background: #e9ebec;
 }
 
 /* Category buttons in the sidebar */
@@ -155,4 +166,111 @@ button:hover, .btn:focus {
 @media (max-width: 600px){
   :root{ --btn-font-size: 1rem; --btn-padding: 10px 14px; }
   #categoryList .cat-btn { padding: 10px 12px; }
+}
+
+/* Google sign-in button styles */
+/* Add this CSS rule to your styles.css file */
+.btn-google img,
+.btn-google svg {
+    /* Set a fixed, small size for the icon */
+    width: 20px; 
+    height: 20px; 
+    
+    /* Ensure it aligns nicely with the text */
+    vertical-align: middle;
+    margin-right: 8px; /* Adds space between icon and text */
+}
+
+/* Optional: Improve the look of the button itself */
+.btn-google {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff; /* White background */
+    color: #4285f4; /* Google blue text */
+    border: 1px solid #ccc;
+    padding: 10px 15px;
+    font-weight: 500;
+    cursor: pointer;
+}
+.google-btn:active { transform: translateY(1px); }
+/* optional hover */
+.google-btn:hover { box-shadow: 0 2px 6px rgba(0,0,0,0.06); }
+
+/* ensure svg uses its internal colors; if you want monochrome, use fill: currentColor */
+
+
+
+/* ===== DRAWERS (MOBILE ONLY) ===== */
+
+.drawer {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 260px;
+  background: #ffffff;
+  padding: 20px;
+  transform: translateX(-100%);
+  transition: transform .3s ease;
+  z-index: 1200;
+  overflow-y: auto;
+  display: none;
+}
+
+.drawer.right {
+  right: 0;
+  transform: translateX(100%);
+}
+
+.drawer.open {
+  transform: translateX(0);
+}
+
+.drawer-close {
+  font-size: 26px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  float: right;
+  margin-bottom: 16px;
+}
+
+.drawer-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  z-index: 1100;
+  display: none;
+}
+
+/* MOBILE HEADER BUTTONS */
+.mobile-menu-btn,
+.mobile-account-btn {
+  display: none;
+  font-size: 24px;
+  border: none;
+  background: none;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* ===== MOBILE MODE ACTIVE ===== */
+@media (max-width: 800px) {
+  .drawer {
+    display: block;
+  }
+
+  /* Hide desktop sidebar */
+  .sidebar {
+    display: none;
+  }
+
+  .mobile-menu-btn,
+  .mobile-account-btn {
+    display: inline-block;
+  }
+
+  .header-left {
+    gap: 8px;
+  }
 }
