@@ -8,9 +8,33 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+<!-- MOBILE LEFT DRAWER (Categories) -->
+<div id="mobileLeftDrawer" class="drawer left">
+  <button class="drawer-close" onclick="closeLeft()">✕</button>
+  <h3>Departments</h3>
+  <ul id="mobileCategoryList"></ul>
+</div>
+
+<!-- MOBILE RIGHT DRAWER (Account) -->
+<div id="mobileRightDrawer" class="drawer right">
+  <button class="drawer-close" onclick="closeRight()">✕</button>
+
+  <div class="mobile-account-area">
+      <div id="mobileAccountInfo">Hello Guest</div>
+
+      <button id="mobileLoginBtn" class="btn">Login</button>
+      <button id="mobileRegisterBtn" class="btn">Register</button>
+      <button id="mobileLogoutBtn" class="btn hidden">Logout</button>
+  </div>
+</div>
+
+<!-- BACKDROP -->
+<div id="drawerOverlay" class="drawer-overlay" onclick="closeAllDrawers()"></div>
+
   <header class="site-header">
     <div class="header-left">
-      <div class="logo">My Online Store<span class="logo-dot">Demo</span></div>
+      <button class="mobile-menu-btn" onclick="openLeft()">☰</button>
+      <div class="logo">Sensei Ark shop2<span class="logo-dot">Demo</span></div>
       <nav class="main-nav">
         <a href="#">All</a>
         <a href="#">Prime</a>
@@ -29,7 +53,9 @@
         <button id="registerBtn" class="btn">Register</button>
         <button id="logoutBtn" class="btn hidden">Logout</button>
       </div>
+      <button id="wishlistBtn" class="btn btn-wish" title="Wishlist">♡</button>
       <div class="cart" id="cartBtn">🛒 <span id="cartCount">0</span></div>
+      <button class="mobile-account-btn" onclick="openRight()">⋮</button>
     </div>
   </header>
 
@@ -73,6 +99,16 @@
     </div>
   </div>
 
+  <!-- Wishlist modal -->
+  <div id="wishModal" class="modal hidden" role="dialog" aria-modal="true">
+    <div class="modal-content cart-modal-content">
+      <button id="wishModalClose" class="modal-close">✕</button>
+      <div id="wishBody">
+        <!-- wishlist rendered by script.js -->
+      </div>
+    </div>
+  </div>
+
   <!-- Auth modal (login/register) -->
   <div id="authModal" class="modal hidden" role="dialog" aria-modal="true">
     <div class="modal-content auth-modal-content">
@@ -93,13 +129,37 @@
             <input name="name" placeholder="Full name" required>
             <input name="email" type="email" placeholder="Email" required>
             <input name="password" type="password" placeholder="Password" required>
+            <!-- Address fields required for checkout -->
+            <input name="address" placeholder="Address (street, number)" class="full" required>
+            <input name="city" placeholder="City" required>
+            <input name="zip" placeholder="ZIP / Postal" required>
+            <input name="country" placeholder="Country" required>
+            <input name="phone" placeholder="Phone number" required>
             <button type="submit" class="btn">Create account</button>
           </form>
         </div>
+            <div class="social-login">
+                <button id="googleSignInBtn" class="btn btn-google"  type="button" aria-label="Sign in with Google">
+                 <!-- Google "G" logo (inline SVG) -->
+          <svg viewBox="0 0 533.5 544.3" aria-hidden="true" focusable="false">
+            <path fill="#4285F4" d="M533.5 278.4c0-18.6-1.5-36.6-4.4-54H272v102.3h147.1c-6.3 34.1-25.5 62.9-54.5 82.1v68.2h87.9c51.4-47.3 81-117.2 81-198.6z"/>
+            <path fill="#34A853" d="M272 544.3c73.7 0 135.5-24.5 180.7-66.6l-87.9-68.2c-24.5 16.5-56 26-92.8 26-71 0-131.2-47.9-152.7-112.2H28.8v70.6C71.6 475.9 166.3 544.3 272 544.3z"/>
+            <path fill="#FBBC05" d="M119.3 323.3c-10.8-32.3-10.8-66.9 0-99.2V153.5H28.8c-41.7 82.7-41.7 181.1 0 263.8l90.5-94z"/>
+            <path fill="#EA4335" d="M272 107.7c39.9 0 75.8 13.7 104 40.6l78-78C403.1 25.1 341.3 0 272 0 166.3 0 71.6 68.4 28.8 153.5l90.5 70.6C140.8 155.6 201 107.7 272 107.7z"/>
+          </svg>
+          <span>Sign in with Google</span>
+           </button>
+             </div>
+         
       </div>
     </div>
   </div>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
 
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
+    
   <script src="script.js" defer></script>
 </body>
 </html>
+
